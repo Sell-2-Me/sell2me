@@ -14,15 +14,15 @@
  * Spring Data
  * Spring MVC
  * Spring REST
- * Spring Boot
  * Spring Security
+ * Spring Boot
+ 
 
+### Frontend:
 
- ### Frontend:
-
- * AngularJS
- * Bootstrap
- * Bower
+* AngularJS
+* Bootstrap
+* Bower
  
 
 Server side application (Spring) provides RESTful API for client side application (AngularJS).

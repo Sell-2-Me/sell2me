@@ -1,0 +1,64 @@
+<html ng-app="app">
+<head>
+    <title>Sell2me On-Line Shop</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/signin.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">Sell2me</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#home">Home</a></li>
+                <li ng-show="auth.authorized"><a href="#">Secure</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="auth.authorized"><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ng-show="auth.authorized"><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div ui-view ng-cloak class="ng-cloak">
+</div>
+
+<footer class="container-fluid text-center">
+    <p>Copyright &copy; Sell2me 2016</p>
+</footer>
+
+
+
+
+<!-- Libraries, etc -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<!-- Angular modules, controllers, services, etc -->
+<script src="js/app.js"></script>
+<script src="js/services/UserServise.js"></script>
+<script src="js/services/AuthService.js"></script>
+<script src="js/controllers/AuthController.js"></script>
+<script src="js/controllers/HomeController.js"></script>
+
+</body>
+</html>

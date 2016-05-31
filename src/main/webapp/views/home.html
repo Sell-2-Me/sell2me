@@ -1,0 +1,33 @@
+<div class="container">
+
+    <br><br>
+
+    <button type="button" ng-click="hctrl.getUsers()">Get users</button>
+
+    <div>
+        <table>
+            <tr>
+                <th>UserID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Username</th>
+                <th>Roles</th>
+            </tr>
+            <tr ng-repeat="user in hctrl.users">
+                <td>{{ user.userID }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.authorities }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <br><br>
+
+    <p>{{ auth.authorized }}</p>
+
+    <br><br>
+
+
+</div>

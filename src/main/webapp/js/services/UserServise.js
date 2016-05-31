@@ -3,19 +3,14 @@
     
     
     angular.module('app')
-        .service('userService', ['$resource', 'appConstants', userService]);
+        .service('userService', ['$resource', userService]);
 
     
-    function userService($resource, appConstants){
+    function userService($resource){
      
         return $resource('users/:id', null, {
             users: {
                 method: 'GET',
-                isArray: true
-            },
-            allu: {
-                method: 'GET',
-                url : appConstants.BASE_URL + 'users',
                 isArray: true
             }
         });

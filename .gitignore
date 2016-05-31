@@ -1,4 +1,8 @@
 /out
 /build
-/.idea
 /.gradle
+/src/main/webapp/.idea/**
+/.idea
+/.idea/workspace.xml
+
+

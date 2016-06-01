@@ -3,6 +3,8 @@ package org.sell2me.application.controller;
 import org.sell2me.application.model.AuthenticationRequest;
 import org.sell2me.application.model.AuthenticationResponse;
 import org.sell2me.application.model.SpringSecurityUser;
+import org.sell2me.application.model.User;
+import org.sell2me.application.service.UserService;
 import org.sell2me.application.utils.AppConstants;
 import org.sell2me.application.utils.TokenUtils;
 import org.slf4j.Logger;
@@ -38,6 +40,9 @@ public class AuthenticationController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private UserService userService;
+
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<?> authenticationRequest(@RequestBody AuthenticationRequest authenticationRequest)
@@ -54,7 +59,8 @@ public class AuthenticationController {
 
         // Reload password post-authentication so we can generate token
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-        String token = this.tokenUtils.generateToken(userDetails);
+        User user = userService.getUserByUsername(authenticationRequest.getUsername());
+        String token = this.tokenUtils.generateToken(userDetails, user);
 
         // Return the token
         return ResponseEntity.ok(new AuthenticationResponse(token));

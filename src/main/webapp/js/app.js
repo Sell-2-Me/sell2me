@@ -1,6 +1,7 @@
 var app = angular.module('app', [
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'angular-jwt'
 ]);
 
 app.constant('appConstants', {
@@ -14,8 +15,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, appConst
         .state('login', {
             url: '/login',
             templateUrl: 'views/login.html',
-            controller: 'LoginController',
-            controllerAs: 'lctrl'
+            controller: 'AuthController',
+            controllerAs: 'authctrl'
         })
         .state('home', {
             url: '/home',
@@ -41,4 +42,5 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, appConst
 
 app.run(function ($rootScope) {
     $rootScope.auth = { authorized : false };
+    $rootScope.session = {};
 });
